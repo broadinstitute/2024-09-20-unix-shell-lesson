@@ -12,7 +12,7 @@
 carpentry: "incubator"
 
 # Overall title for pages.
-title: "The Unix Shell (BroadHacks Workshop)"
+title: "The Unix Shell"
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: "2024-04-24"
