@@ -61,7 +61,7 @@ Download `untrimmed_fastq.zip` to your home directory and unpack it.
 
 ```bash
 $ cd
-wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/untrimmed_fastq.zip
+wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/untrimmed_fastq.zip
 $ unzip untrimmed_fastq.zip
 $ cd untrimmed_fastq
 ```
@@ -78,8 +78,8 @@ In this lesson, we're going to be manually searching for strings of `N`s within 
 results to illustrate some principles of file searching. It can be really useful to do this
 type of searching to get a feel for the quality of your sequencing results, however, in your
 research you will most likely use a bioinformatics tool that has a built-in program for
-filtering out low-quality reads. You'll learn how to use one such tool in
-[a later lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control).
+filtering out low-quality reads. You can learn how to use one such tool in
+[this Data Carpentries lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

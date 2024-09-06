@@ -32,7 +32,7 @@ Download `cb_unix_shell.tgz` to your home directory and unpack it.
 
 ```bash
 $ cd
-$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz
 $ tar -xzf cb_unix_shell.tgz
 ```
 
@@ -170,7 +170,7 @@ Download `untrimmed_fastq.zip` to your home directory and unpack it.
 
 ```bash
 $ cd
-wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/untrimmed_fastq.zip
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/untrimmed_fastq.zip
 $ unzip untrimmed_fastq.zip
 ```
 
@@ -239,6 +239,9 @@ A few more useful shortcuts:
 - <kbd>Ctrl</kbd>\+<kbd>R</kbd> will do a reverse-search through your command history.  This
   is very useful.
 - <kbd>Ctrl</kbd>\+<kbd>L</kbd> or the `clear` command will clear your screen.
+
+There are also keyboard shortcuts to move around on the command line efficiently. ![](/fig/command-line-keybindings_mac.png){alt='quick reference for navigating the command line'}
+To learn more, visit [Effective Shell](https://effective-shell.com/part-2-core-skills/fly-on-the-command-line).
 
 You can also review your recent commands with the `history` command, by entering:
 

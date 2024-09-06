@@ -31,7 +31,7 @@ Download `cb_unix_shell.tgz` to your home directory and unpack it.
 
 ```bash
 $ cd
-$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz
 $ tar -xzf cb_unix_shell.tgz
 ```
 

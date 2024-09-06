@@ -28,8 +28,6 @@ exercises: 10
 
 Open the collaborative doc for our workshop https://broad.io/cb-unix-20240509  
 
-![](fig/broad_io-cb-unix-20240509.png){alt='Workshop collaborative doc'}
-
 If you haven't already, please complete your workshop setup https://broad.io/cb-unix-setup
 
 Feel free to browse today's lesson content
@@ -248,7 +246,7 @@ arranged neatly into columns. Your output may look different if you already have
 On most Unix systems, you can grab a file over the internet using a tool called `wget`. We'll talk about `wget` in more detail later. For now, run this command:
 
 ```bash
-$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz
 ```
 :::::::::::::::::::::::::::::::::::::::::: spoiler
 ## Pasting text into PowerShell (Windows)
