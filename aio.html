@@ -370,7 +370,7 @@
         
 <section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Introducing the Shell</a></p>
 <hr>
-<p>Last updated on 2024-09-02 |
+<p>Last updated on 2024-09-06 |
 
         <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -418,10 +418,10 @@ advantages.</li>
   Before we begin
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>Open the collaborative doc for our workshop <a href="https://broad.io/cb-unix-20240509" class="external-link uri">https://broad.io/cb-unix-20240509</a></p>
-<figure><img src="fig/broad_io-cb-unix-20240509.png" alt="Workshop collaborative doc" class="figure mx-auto d-block"></figure><p>If you haven’t already, please complete your workshop setup <a href="https://broad.io/cb-unix-setup" class="external-link uri">https://broad.io/cb-unix-setup</a></p>
+<p>If you haven’t already, please complete your workshop setup <a href="https://broad.io/cb-unix-setup" class="external-link uri">https://broad.io/cb-unix-setup</a></p>
 <p>Feel free to browse today’s lesson content</p>
 </div>
 </div>
@@ -491,7 +491,7 @@ on the Broad Intranet</a>.</li>
   Your Broad username and Unix password
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>The portion of your Broad email address before the @ symbol is your
 Broad username. Your Unix password is the the same one you use for your
@@ -612,7 +612,7 @@ the prompt, only the commands that follow it.</p>
   [Optional] Customizing your Unix prompt
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <p>You may have a prompt (the characters to the left of the cursor) that
 looks different from the <code>$</code> sign character used here. If you
@@ -684,7 +684,7 @@ more detail later. For now, run this command:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz</span></code></pre>
 </div>
 <div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
@@ -694,7 +694,7 @@ more detail later. For now, run this command:</p>
   Pasting text into PowerShell (Windows)
   </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
 <div class="accordion-body">
 <p>To paste text in Windows PowerShell, right click where you want to
 insert (note: left click will discard what is in your clipboard). For
@@ -822,7 +822,7 @@ quit.</p>
   Make ls output more readable at-a-glance
   </h3>
 </button>
-<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
+<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
 <div class="accordion-body">
 <p>We can make the <code>ls</code> output more comprehensible by using
 the <strong>flag</strong> <code>-F</code>, which tells <code>ls</code>
@@ -965,7 +965,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-02-the-filesystem"><p>Content from <a href="02-the-filesystem.html">Navigating Files and Directories</a></p>
 <hr>
-<p>Last updated on 2024-09-02 |
+<p>Last updated on 2024-09-06 |
 
         <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/02-the-filesystem.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1021,7 +1021,7 @@ unpack it.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xzf</span> cb_unix_shell.tgz</span></code></pre>
 </div>
 </div>
@@ -1425,7 +1425,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-03-working-with-files"><p>Content from <a href="03-working-with-files.html">Working with Files and Directories</a></p>
 <hr>
-<p>Last updated on 2024-09-02 |
+<p>Last updated on 2024-09-06 |
 
         <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/03-working-with-files.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1481,7 +1481,7 @@ unpack it.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xzf</span> cb_unix_shell.tgz</span></code></pre>
 </div>
 </div>
@@ -1648,7 +1648,7 @@ unpack it.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">wget</span> https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/untrimmed_fastq.zip</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/untrimmed_fastq.zip</span>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="ex">$</span> unzip untrimmed_fastq.zip</span></code></pre>
 </div>
 <p>Then, in the following instructions, wherever you see
@@ -1743,6 +1743,10 @@ command history. This is very useful.</li>
 <kbd>Ctrl</kbd>+<kbd>L</kbd> or the <code>clear</code> command will
 clear your screen.</li>
 </ul>
+<p>There are also keyboard shortcuts to move around on the command line
+efficiently. <img src="/fig/command-line-keybindings_mac.png" alt="quick reference for navigating the command line" class="figure"> To learn more,
+visit <a href="https://effective-shell.com/part-2-core-skills/fly-on-the-command-line" class="external-link">Effective
+Shell</a>.</p>
 <p>You can also review your recent commands with the
 <code>history</code> command, by entering:</p>
 <div class="codewrapper sourceCode" id="cb19">
@@ -2395,7 +2399,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-04-redirection"><p>Content from <a href="04-redirection.html">Redirection</a></p>
 <hr>
-<p>Last updated on 2024-09-02 |
+<p>Last updated on 2024-09-06 |
 
         <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/04-redirection.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2489,7 +2493,7 @@ unpack it.</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">wget</span> https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/untrimmed_fastq.zip</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">wget</span> https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/untrimmed_fastq.zip</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">$</span> unzip untrimmed_fastq.zip</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">$</span> cd untrimmed_fastq</span></code></pre>
 </div>
@@ -2511,9 +2515,9 @@ segments containing 10 consecutive unknown nucleotides (Ns).</p>
 principles of file searching. It can be really useful to do this type of
 searching to get a feel for the quality of your sequencing results,
 however, in your research you will most likely use a bioinformatics tool
-that has a built-in program for filtering out low-quality reads. You’ll
-learn how to use one such tool in <a href="https://datacarpentry.org/wrangling-genomics/02-quality-control" class="external-link">a
-later lesson</a>.</p>
+that has a built-in program for filtering out low-quality reads. You can
+learn how to use one such tool in <a href="https://datacarpentry.org/wrangling-genomics/02-quality-control" class="external-link">this
+Data Carpentries lesson</a>.</p>
 </div>
 </div>
 </div>
@@ -3454,7 +3458,7 @@ how to interpret this information soon.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Which Editor? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>When we say, “<code>nano</code> is a text editor,” we really do mean
 “text”: <code>nano</code> can only work with plain character data, not
@@ -3536,7 +3540,7 @@ and save the file.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Use <code>nano README.txt</code> to open the file.<br>
 Add today’s date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by
@@ -3627,7 +3631,7 @@ and save the file.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre><code>$ bash bad-reads-script.sh
 Script finished!</code></pre>
@@ -3807,7 +3811,7 @@ machine.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> SCP </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p><code>scp</code> stands for ‘secure copy protocol’, and is a widely
 used UNIX tool for moving files between computers. The simplest way to
@@ -3887,7 +3891,7 @@ machine.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> PCSP </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <p>If you’re using a Windows PC without Git Bash, one option is the
 <em>PSCP</em> program. This program is from a suite of tools that offers
