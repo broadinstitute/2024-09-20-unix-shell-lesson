@@ -330,7 +330,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introducing the Shell</h1>
-        <p>Last updated on 2024-09-06 |
+        <p>Last updated on 2024-09-12 |
 
         <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -380,7 +380,7 @@ advantages.</li>
   Before we begin
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>Open the collaborative doc for our workshop <a href="https://broad.io/cb-unix-20240509" class="external-link uri">https://broad.io/cb-unix-20240509</a></p>
 <p>If you haven’t already, please complete your workshop setup <a href="https://broad.io/cb-unix-setup" class="external-link uri">https://broad.io/cb-unix-setup</a></p>
@@ -443,7 +443,7 @@ on the Broad Intranet</a>.</li>
   Your Broad username and Unix password
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>The portion of your Broad email address before the @ symbol is your
 Broad username. Your Unix password is the the same one you use for your
@@ -562,7 +562,7 @@ the prompt, only the commands that follow it.</p>
   [Optional] Customizing your Unix prompt
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <p>You may have a prompt (the characters to the left of the cursor) that
 looks different from the <code>$</code> sign character used here. If you
@@ -589,7 +589,47 @@ you!</p>
 </div>
 </div>
 </div>
-<p>Let’s find out where we are by running a command called
+<p>When you type something in at a bash command-line prompt, it
+<strong>Reads</strong> the input, <strong>Evaluates</strong> it, then
+<strong>Prints</strong> the results, then does this over and over in a
+<strong>Loop</strong>. This behavior is called a <strong>REPL</strong> –
+a <strong><strong>R</strong>ead</strong>,
+<strong><strong>E</strong>val</strong>,
+<strong><strong>P</strong>rint</strong>
+<strong><strong>L</strong>oop</strong>.</p>
+<p>Many programming language environments have REPLs – Python and R for
+example. The input to the bash REPL is a <em>command</em>. Here are some
+examples:</p>
+<pre><code>ls               # example 1 - no options or arguments
+ls -l            # example 2 - one "short" (single character) option (-l)
+ls --help        # example 3 - one "long" (word) option (--help)
+ls .profile      # example 4 - one argument, a file name (.profile)
+ls --width=20    # example 5 - a long option with a value (--width is the option, 20 is the value)
+ls -w 20         # example 6 - a short option w/a value, as above, where -w is the same as --width
+ls -l -a -h      # example 7 - three short options entered separately (-l -a -h)
+ls -lah          # example 8 - three short options that can be combined after a dash (-lah)</code></pre>
+<p>A <em>command</em> consists of:</p>
+<ul><li>The <em>command</em> name – here <strong>ls</strong>
+(<strong>list</strong> files)
+<ul><li>A command can be any of the built-in Linux/Unix commands, or the
+name of a user-written script or program</li>
+</ul></li>
+<li>One or more <em>options</em>, usually noted with a leading
+<em>dash</em> (-) or <em>double-dash</em> (–).
+<ul><li>
+<strong>-l</strong> in example 2 (long listing)</li>
+<li>
+<strong>–help</strong> in example 3</li>
+<li>Options are <strong>optional</strong> – they do not have to be
+supplied (e.g. example 1 above)</li>
+</ul></li>
+<li>One or more command-line <em>arguments</em>, which are often (but
+not always) file names; these are often optional
+<ul><li>e.g. .profile in example 4. The shell executes the command line
+input when it sees a <em>linefeed</em>, which happens when you press
+<strong>Enter</strong> after entering the command.</li>
+</ul></li>
+</ul><p>Let’s find out where we are by running a command called
 <code>pwd</code> (which stands for “print working directory”). At any
 moment, our <strong>current working directory</strong> is our current
 default directory, i.e., the directory that the computer assumes we want
@@ -598,10 +638,10 @@ the computer’s response is <code>/home/unix/&lt;username&gt;</code>,
 also known as your home directory. It is a common convention to use
 angle brackets as a hint to substitute an appropriate value (without the
 brackets).</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -613,10 +653,10 @@ output box above.</username></p>
 <p>Let’s look at our file system. We can see what files and
 subdirectories are in this directory by running <code>ls</code>, which
 stands for “listing”:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -631,10 +671,10 @@ practice navigating in a Unix environment.</p>
 <p>On most Unix systems, you can grab a file over the internet using a
 tool called <code>wget</code>. We’ll talk about <code>wget</code> in
 more detail later. For now, run this command:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/cb_unix_shell.tgz</span></code></pre>
 </div>
 <div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
@@ -644,7 +684,7 @@ more detail later. For now, run this command:</p>
   Pasting text into PowerShell (Windows)
   </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
 <div class="accordion-body">
 <p>To paste text in Windows PowerShell, right click where you want to
 insert (note: left click will discard what is in your clipboard). For
@@ -675,10 +715,10 @@ cb_unix_shell.tgz              100%[============================================
 </code></pre>
 </div>
 <p>Now if we <code>ls</code></p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -687,16 +727,16 @@ cb_unix_shell.tgz              100%[============================================
 </div>
 <p>We downloaded a “tarball”. It’s a compressed file that can be
 unpacked. Let’s unpack it!</p>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xzf</span> cb_unix_shell.tgz</span></code></pre>
-</div>
-<p>Now if we <code>ls</code> again</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xzf</span> cb_unix_shell.tgz</span></code></pre>
+</div>
+<p>Now if we <code>ls</code> again</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -710,16 +750,16 @@ directory. <code>cd</code> stands for “change directory”.</p>
 <p>Let’s say we want to navigate to the <code>cb_unix_shell</code>
 directory we saw above. We can use the following command to get
 there:</p>
-<div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell</span></code></pre>
-</div>
-<p>Let’s look at what is in this directory:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell</span></code></pre>
+</div>
+<p>Let’s look at what is in this directory:</p>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -729,10 +769,10 @@ there:</p>
 <p>We can tell <code>ls</code> to display more information for each item
 in the directory by giving it a command line <strong>flag</strong>. Use
 the <code>-l</code> option for the <code>ls</code> command, like so:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -751,10 +791,10 @@ the file, when the file was last modified, and whether the current user
 has permission to read and write to the file.</p>
 <p><code>ls</code> has lots of other options. To find out what they are,
 we can type:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> man ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> man ls</span></code></pre>
 </div>
 <p><code>man</code> (short for manual) displays detailed documentation
 (also referred as man page or man file) for <code>bash</code> commands.
@@ -772,15 +812,15 @@ quit.</p>
   Make ls output more readable at-a-glance
   </h3>
 </button>
-<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
+<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
 <div class="accordion-body">
 <p>We can make the <code>ls</code> output more comprehensible by using
 the <strong>flag</strong> <code>-F</code>, which tells <code>ls</code>
 to add a trailing <code>/</code> to the names of directories:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -801,11 +841,11 @@ manual page is for. You can (and should) refer to the manual page or
 other help files as needed.</p>
 <p>Let’s go into the <code>Dahl</code> directory and see what is in
 there.</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> cd Dahl</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> cd Dahl</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -822,19 +862,19 @@ shortcut. When you start typing out the name of a directory or file,
 then hit the <kbd>Tab</kbd> key, the shell will try to fill in the rest
 of the directory or file name.</p>
 <p>From the <code>Dahl</code> directory:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> cd J<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> cd J<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>The shell will fill in the rest of the directory name for
 <code>James_and_the_Giant_Peach</code>.</p>
 <p>Now change directories to <code>James_and_the_Giant_Peach</code> in
 <code>Dahl</code></p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> cd James_and_the_Giant_Peach</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> cd James_and_the_Giant_Peach</span></code></pre>
 </div>
 <p>Using tab complete can be very helpful. However, it will only
 autocomplete a file or directory name if you’ve typed enough characters
@@ -842,19 +882,19 @@ to provide a unique identifier for the file or directory you are trying
 to access.</p>
 <p>For example, if we now try to list the files which names start with
 <code>Au</code> by using tab complete:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> ls Au<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> ls Au<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
 </div>
 <p>The shell auto-completes your command to <code>Aunt_Sp</code>,
 because there are two files in the directory that begin with
 <code>Aunt_Sp</code>. When you hit <kbd>Tab</kbd> again, the shell will
 list the possible choices.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> ls Aunt_Sp<span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> ls Aunt_Sp<span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -863,10 +903,10 @@ list the possible choices.</p>
 </div>
 <p>Tab completion can also fill in the names of programs, which can be
 useful if you remember the beginning of a program name.</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="ex">$</span> pw<span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="ex">$</span> pw<span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -966,8 +1006,8 @@ any links that you are not going to use.
   "url": "https://broadinstitute.github.io/2024-09-20-unix-shell-lesson/01-introduction.html",
   "identifier": "https://broadinstitute.github.io/2024-09-20-unix-shell-lesson/01-introduction.html",
   "dateCreated": "2024-04-24",
-  "dateModified": "2024-09-06",
-  "datePublished": "2024-09-10"
+  "dateModified": "2024-09-12",
+  "datePublished": "2024-09-12"
 }
 
   </script><script>
