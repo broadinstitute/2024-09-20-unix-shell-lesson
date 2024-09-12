@@ -108,3 +108,5 @@ title: Shell Cheat Sheet
 **`'''\n`** translates every blank space into `\n`, then renders on a new line
 
 **`uniq`** reports or filters repeated lines in a file, use with `-c` to do a word count of the duplicates
+
+[Unix cheatsheet](https://cloud.wikis.utexas.edu/wiki/spaces/CbrsIntroUnix/pages/71992057/Some+Linux+commands) from UTAustin's [Intro to Unix](https://cloud.wikis.utexas.edu/wiki/spaces/CbrsIntroUnix) wiki
