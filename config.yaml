@@ -58,28 +58,26 @@ contact: 'cb-unix-admin@broadinstitute.org'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - 01-introduction.md
 - 02-the-filesystem.md
 - 03-working-with-files.md
 - 04-redirection.md
 - 05-writing-scripts.md
-- 06-bonus-material.Rmd
 
 # Information for Learners
-learners: 
+learners:
 - setup.md
-- Extra_lesson.md
 - organization.md
 - shellCheatSheet.md
 - reference.md
 
 # Information for Instructors
-instructors: 
+instructors:
 - instructor-notes.md
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
