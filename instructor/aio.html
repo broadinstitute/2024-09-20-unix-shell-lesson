@@ -122,8 +122,9 @@
             More <i data-feather="chevron-down"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-<li><a class="dropdown-item" href="Extra_lesson.html">File manipulation</a></li>
 <hr>
+<li><a class="dropdown-item" href="Extra_lesson.html">File manipulation</a></li>
+<li><a class="dropdown-item" href="organization.html">Project Organization</a></li>
 <li><a class="dropdown-item" href="shellCheatSheet.html">Shell Cheat Sheet</a></li>
 <li><a class="dropdown-item" href="reference.html">Glossary</a></li>
           </ul>
@@ -306,7 +307,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-organization.html">6. Project Organization</a>
+        <a href="06-bonus-material.html">6. Practical examples</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -339,8 +340,9 @@
                       <li>
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
-                      <li><a href="Extra_lesson.html">File manipulation</a></li>
-<hr>
+                      <hr>
+<li><a class="dropdown-item" href="Extra_lesson.html">File manipulation</a></li>
+<li><a class="dropdown-item" href="organization.html">Project Organization</a></li>
 <li><a class="dropdown-item" href="shellCheatSheet.html">Shell Cheat Sheet</a></li>
 <li><a class="dropdown-item" href="reference.html">Glossary</a></li>
                     </ul>
@@ -692,6 +694,8 @@ input when it sees a <em>linefeed</em>, which happens when you press
 </ul>
 </li>
 </ul>
+<p>(REPL &amp; command breakdown from UTAustin’s fantastic <a href="https://cloud.wikis.utexas.edu/wiki/spaces/CbrsIntroUnix" class="external-link">Intro to
+Unix</a> wiki)</p>
 <p>Let’s find out where we are by running a command called
 <code>pwd</code> (which stands for “print working directory”). At any
 moment, our <strong>current working directory</strong> is our current
@@ -1067,7 +1071,7 @@ directory.</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Setup instructions if not continuing from Episode 1 </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>Download <code>cb_unix_shell.tgz</code> to your home directory and
 unpack it.</p>
@@ -1177,7 +1181,7 @@ example <code>.my_hidden_directory</code></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>First use the <code>man</code> command to look at the options for
 <code>ls</code>.</p>
@@ -1280,7 +1284,7 @@ to go through the intermediate directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1394,7 +1398,7 @@ display?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>No: there <em>is</em> a directory <code>backup</code> in
@@ -1528,7 +1532,7 @@ used commands.</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Setup instructions if not continuing from Episode 2 </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>Download <code>cb_unix_shell.tgz</code> to your home directory and
 unpack it.</p>
@@ -1660,7 +1664,7 @@ wildcards to find what you need to solve the bonus problem.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>ls /usr/bin/c*</code></li>
@@ -1695,7 +1699,7 @@ directory for today’s workshop.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> What if /broad/hptmp/computing_basics is missing? </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>Download <code>untrimmed_fastq.zip</code> to your home directory and
 unpack it.</p>
@@ -1752,7 +1756,7 @@ be useful for injecting desirable text where you need it.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1847,7 +1851,7 @@ the .sh files in <code>/usr/bin</code>. Rerun that command.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>First type <code>history</code>. Then use <code>!</code> followed by
 the line number to rerun that command.</p>
@@ -1896,7 +1900,7 @@ directory.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The last line of the file is
@@ -1988,7 +1992,7 @@ instance of the sequence <code>TTTTT</code> quoted above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p><code>CAC</code></p>
 </div>
@@ -2307,7 +2311,7 @@ this in <a href="05-writing-scripts.html">a later lesson</a>).</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> File permissions resources </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>For more information on Unix file permissions:<br><a href="https://help.rc.unc.edu/how-to-use-unix-and-linux-file-permissions/" class="external-link uri">https://help.rc.unc.edu/how-to-use-unix-and-linux-file-permissions/</a><br>
 To convert between numeric (eg. 777) and symbolic (eg. rwxrwxrwx) Unix
@@ -2398,7 +2402,7 @@ write-protected.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>rm -r backup</code></li>
@@ -2541,7 +2545,7 @@ a different physical location.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> What if /broad/hptmp/computing_basics is missing? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>Download <code>untrimmed_fastq.zip</code> to your home directory and
 unpack it.</p>
@@ -2636,7 +2640,7 @@ for each sequence that contains a match.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>grep -B1 GNATNACCACTTCC SRR098026.fastq</code></li>
@@ -2701,7 +2705,7 @@ to another file called <code>bad_reads.txt</code>.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> No such file or directory </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If you see something similar to</p>
 <div class="codewrapper">
@@ -2722,7 +2726,7 @@ was confused!</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Permission denied !?! </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>If you’re seeing</p>
 <div class="codewrapper">
@@ -2813,7 +2817,7 @@ Remember that every sequence is formed by four lines.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2868,7 +2872,7 @@ consecutive Ns?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3315,7 +3319,7 @@ current directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3371,7 +3375,7 @@ files.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb57">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4030,12 +4034,12 @@ computers.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section></section><section id="aio-06-organization"><p>Content from <a href="06-organization.html">Project Organization</a></p>
+</section></section><section id="aio-06-bonus-material"><p>Content from <a href="06-bonus-material.html">Practical examples</a></p>
 <hr>
-<p>Last updated on 2024-09-02 |
+<p>Last updated on 2024-09-12 |
 
-        <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/06-organization.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
+        <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/06-bonus-material.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -4047,9 +4051,8 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How can I organize my file system for a new bioinformatics
-project?</li>
-<li>How can I document my work?</li>
+<li>How can we work with files specific to the biological sciences in
+Unix?</li>
 </ul>
 </div>
 </div>
@@ -4059,218 +4062,220 @@ project?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Create a file system for a bioinformatics project.</li>
-<li>Explain what types of files should go in your <code>docs</code>,
-<code>data</code>, and <code>results</code> directories.</li>
-<li>Use the <code>history</code> command and a text editor like
-<code>nano</code> to document your work on your project.</li>
+<li>Explain how to use common Unix tools (eg. grep, sed etc) to extract
+information from a specialized biological file format (example: <a href="https://useast.ensembl.org/info/website/upload/gff.html" class="external-link">GFF</a>
+)</li>
+<li>Demonstrate how to use a specialized Unix tool (eg. h5ls) to inspect
+biological data in a specialized file format (example: <a href="https://anndata.readthedocs.io/en/latest/" class="external-link">AnnData</a> with single
+cell RNAseq data)</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="getting-your-project-started">Getting your project started<a class="anchor" aria-label="anchor" href="#getting-your-project-started"></a>
+<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <hr class="half-width">
-<p>Project organization is one of the most important parts of a
-sequencing project, and yet is often overlooked amidst the excitement of
-getting a first look at new data. Of course, while it’s best to get
-yourself organized before you even begin your analyses, it’s never too
-late to start, either.</p>
-<p>You should approach your sequencing project similarly to how you do a
-biological experiment and this ideally begins with experimental design.
-We’re going to assume that you’ve already designed a beautiful
-sequencing experiment to address your biological question, collected
-appropriate samples, and that you have enough statistical power to
-answer the questions you’re interested in asking. These steps are all
-incredibly important, but beyond the scope of our course. For all of
-those steps (collecting specimens, extracting DNA, prepping your
-samples) you’ve likely kept a lab notebook that details how and why you
-did each step. However, the process of documentation doesn’t stop at the
-sequencer!</p>
-<p>Genomics projects can quickly accumulate hundreds of files across
-tens of folders. Every computational analysis you perform over the
-course of your project is going to create many files, which can
-especially become a problem when you’ll inevitably want to run some of
-those analyses again. For instance, you might have made significant
-headway into your project, but then have to remember the PCR conditions
-you used to create your sequencing library months prior.</p>
-<p>Other questions might arise along the way:</p>
-<ul>
-<li>What were your best alignment results?</li>
-<li>Which folder were they in: Analysis1, AnalysisRedone, or
-AnalysisRedone2?</li>
-<li>Which quality cutoff did you use?</li>
-<li>What version of a given program did you implement your analysis
-in?</li>
-</ul>
-<p>Good documentation is key to avoiding this issue, and luckily enough,
-recording your computational experiments is even easier than recording
-lab data. Copy/Paste will become your best friend, sensible file names
-will make your analysis understandable by you and your collaborators,
-and writing the methods section for your next paper will be easy!
-Remember that in any given project of yours, it’s worthwhile to consider
-a future version of yourself as an entirely separate collaborator. The
-better your documenation is, the more this ‘collaborator’ will feel
-indebted to you!</p>
-<p>With this in mind, let’s have a look at the best practices for
-documenting your genomics project. Your future self will thank you.</p>
-<p>In this exercise we will setup a file system for the project we will
-be working on during this workshop.</p>
-<p>We will start by creating a directory that we can use for the rest of
-the workshop. First navigate to your home directory. Then confirm that
-you are in the correct directory using the <code>pwd</code> command.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<p>Unix/Linux provides many small tools and utilities that can easily
+interact with each other using their built-in Input and Output streams,
+allowing you to perform complex data manipulations on the command line
+without writing a formal program or script.</p>
+<p>This bonus section provides some examples of how to use Unix for
+biology-specific tasks.</p>
+<div class="section level3">
+<h3 id="introducing-h5ls-a-unix-tool-to-peek-into-anndata-objects">Introducing <strong>h5ls</strong>, a Unix tool to peek into AnnData
+objects<a class="anchor" aria-label="anchor" href="#introducing-h5ls-a-unix-tool-to-peek-into-anndata-objects"></a>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
-</div>
-<p>You should see the output:</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>/home/unix/&lt;username&gt;  </code></pre>
-</div>
-<div id="tip" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="tip" class="callout-inner">
-<h3 class="callout-title">Tip</h3>
-<div class="callout-content">
-<p>If you aren’t in your home directory, the easiest way to get there is
-to enter the command <code>cd</code>, which always returns you to
-home.</p>
-</div>
-</div>
-</div>
-<div id="exercise" class="callout challenge">
+<p>&lt;show what head <anndata> file looks like&gt;</anndata></p>
+<p>If you have an AnnData file locally AND you have the hdf5 library
+installed locally (which you do if you have the AnnData or ScanPy
+library installed), you can use the hdf5 command line tool h5ls to
+quickly peek inside an AnnData file. Example:</p>
+<pre><code>&gt; h5ls unconventional.h5ad/obs
+G2M_score                Dataset {700}
+S_score                  Dataset {700}
+bulk_labels              Group
+index                    Dataset {700}
+louvain                  Group
+n_counts                 Dataset {700}
+n_genes                  Dataset {700}
+percent_mito             Dataset {700}
+phase                    Group</code></pre>
+<p>Maybe the top level isn’t enough information, go deeper with
+<strong>h5ls -r</strong>:</p>
+<pre><code>&gt; h5ls -r unconventional.h5ad
+/                        Group
+/X                       Dataset {700, 765}
+/layers                  Group
+/obs                     Group
+/obs/G2M_score           Dataset {700}
+/obs/S_score             Dataset {700}
+/obs/bulk_labels         Group
+/obs/bulk_labels/categories Dataset {10}
+/obs/bulk_labels/codes   Dataset {700}
+/obs/index               Dataset {700}
+/obs/louvain             Group
+/obs/louvain/categories  Dataset {11}
+/obs/louvain/codes       Dataset {700}
+/obs/n_counts            Dataset {700}
+/obs/n_genes             Dataset {700}
+/obs/percent_mito        Dataset {700}
+/obs/phase               Group
+/obs/phase/categories    Dataset {3}
+/obs/phase/codes         Dataset {700}
+/obsm                    Group
+/obsm/X_pca              Dataset {700, 50}
+/obsm/X_umap             Dataset {700, 2}
+/obsp                    Group
+/obsp/connectivities     Group
+/obsp/connectivities/data Dataset {9992/Inf}
+/obsp/connectivities/indices Dataset {9992/Inf}
+/obsp/connectivities/indptr Dataset {701/Inf}
+/obsp/distances          Group
+/obsp/distances/data     Dataset {6300/Inf}
+/obsp/distances/indices  Dataset {6300/Inf}
+/obsp/distances/indptr   Dataset {701/Inf}
+/raw                     Group
+/raw/X                   Group
+/raw/X/data              Dataset {174400/Inf}
+/raw/X/indices           Dataset {174400/Inf}
+/raw/X/indptr            Dataset {701/Inf}
+/raw/var                 Group
+/raw/var/index           Dataset {765}
+/raw/varm                Group
+/uns                     Group
+/uns/bulk_labels_colors  Dataset {10}
+/uns/louvain             Group
+/uns/louvain/params      Group
+/uns/louvain/params/random_state Dataset {1}
+/uns/louvain/params/resolution Dataset {1}
+/uns/louvain_colors      Dataset {11}
+/uns/neighbors           Group
+/uns/neighbors/params    Group
+/uns/neighbors/params/method Dataset {SCALAR}
+/uns/neighbors/params/n_neighbors Dataset {1}
+/uns/pca                 Group
+/uns/pca/variance        Dataset {50}
+/uns/pca/variance_ratio  Dataset {50}
+/uns/rank_genes_groups   Group
+/uns/rank_genes_groups/names Dataset {100}
+/uns/rank_genes_groups/params Group
+/uns/rank_genes_groups/params/groupby Dataset {SCALAR}
+/uns/rank_genes_groups/params/method Dataset {SCALAR}
+/uns/rank_genes_groups/params/reference Dataset {SCALAR}
+/uns/rank_genes_groups/params/use_raw Dataset {1}
+/uns/rank_genes_groups/scores Dataset {100}
+/var                     Group
+/var/dispersions         Dataset {765}
+/var/dispersions_norm    Dataset {765}
+/var/highly_variable     Dataset {765}
+/var/index               Dataset {765}
+/var/means               Dataset {765}
+/var/n_counts            Dataset {765}
+/varm                    Group
+/varm/PCs                Dataset {765, 50}
+/varp                    Group</code></pre>
+<p>Too much information? Do a more focused recursive
+<strong>h5ls</strong> by specifying a deeper path in the object (in this
+example, the deeper path is ‘/obs’):</p>
+<pre><code>&gt; h5ls -r unconventional.h5ad/obs
+/G2M_score               Dataset {700}
+/S_score                 Dataset {700}
+/bulk_labels             Group
+/bulk_labels/categories  Dataset {10}
+/bulk_labels/codes       Dataset {700}
+/index                   Dataset {700}
+/louvain                 Group
+/louvain/categories      Dataset {11}
+/louvain/codes           Dataset {700}
+/n_counts                Dataset {700}
+/n_genes                 Dataset {700}
+/percent_mito            Dataset {700}
+/phase                   Group
+/phase/categories        Dataset {3}
+/phase/codes             Dataset {700}</code></pre>
+<p>Notice that for AnnData objects, there are some Group objects that
+have nested datasets named categories and codes these are often Pandas’
+categorical data. You can get the unique list of categorical labels with
+<strong>h5dump -d</strong>:</p>
+<pre><code>&gt; h5dump -d "obs/bulk_labels/categories" unconventional.h5ad
+HDF5 "unconventional.h5ad" {
+DATASET "obs/bulk_labels/categories" {
+   DATATYPE  H5T_STRING {
+      STRSIZE H5T_VARIABLE;
+      STRPAD H5T_STR_NULLTERM;
+      CSET H5T_CSET_UTF8;
+      CTYPE H5T_C_S1;
+   }
+   DATASPACE  SIMPLE { ( 10 ) / ( 10 ) }
+   DATA {
+   (0): "CD4+/CD25 T Reg", "CD4+/CD45RA+/CD25- Naive T",
+   (2): "CD4+/CD45RO+ Memory", "CD8+ Cytotoxic T",
+   (4): "CD8+/CD45RA+ Naive Cytotoxic", "CD14+ Monocyte", "CD19+ B", "CD34+",
+   (8): "CD56+ NK", "Dendritic"
+   }
+   ATTRIBUTE "encoding-type" {
+      DATATYPE  H5T_STRING {
+         STRSIZE H5T_VARIABLE;
+         STRPAD H5T_STR_NULLTERM;
+         CSET H5T_CSET_UTF8;
+         CTYPE H5T_C_S1;
+      }
+      DATASPACE  SCALAR
+      DATA {
+      (0): "string-array"
+      }
+   }
+   ATTRIBUTE "encoding-version" {
+      DATATYPE  H5T_STRING {
+         STRSIZE H5T_VARIABLE;
+         STRPAD H5T_STR_NULLTERM;
+         CSET H5T_CSET_UTF8;
+         CTYPE H5T_C_S1;
+      }
+      DATASPACE  SCALAR
+      DATA {
+      (0): "0.2.0"
+      }
+   }
+}
+}</code></pre>
+<div id="challenge" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise" class="callout-inner">
-<h3 class="callout-title">Exercise</h3>
+<div id="challenge" class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
-<p>Use the <code>mkdir</code> command to make the following
-directories:</p>
-<ul>
-<li><code>dc_workshop</code></li>
-<li><code>dc_workshop/docs</code></li>
-<li><code>dc_workshop/data</code></li>
-<li><code>dc_workshop/results</code></li>
-</ul>
+
 </div>
 </div>
 </div>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> mkdir dc_workshop</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">$</span> mkdir dc_workshop/docs</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">$</span> mkdir dc_workshop/data</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="ex">$</span> mkdir dc_workshop/results</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Use <code>ls -R</code> to verify that you have created these
-directories. The <code>-R</code> option for <code>ls</code> stands for
-recursive. This option causes <code>ls</code> to return the contents of
-each subdirectory within the directory iteratively.</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-R</span> dc_workshop</span></code></pre>
-</div>
-<p>You should see the following output:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>dc_workshop/:
-data  docs  results
-
-dc_workshop/data:
-
-dc_workshop/docs:
-
-dc_workshop/results: </code></pre>
+<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="organizing-your-files">Organizing your files<a class="anchor" aria-label="anchor" href="#organizing-your-files"></a>
-</h2>
-<hr class="half-width">
-<p>Before beginning any analysis, it’s important to save a copy of your
-raw data. The raw data should never be changed. Regardless of how sure
-you are that you want to carry out a particular data cleaning step,
-there’s always the chance that you’ll change your mind later or that
-there will be an error in carrying out the data cleaning and you’ll need
-to go back a step in the process. Having a raw copy of your data that
-you never modify guarantees that you will always be able to start over
-if something goes wrong with your analysis. When starting any analysis,
-you can make a copy of your raw data file and do your manipulations on
-that file, rather than the raw version. We learned in <a href="https://jlchang.github.io/2024-06-21-unix-shell-lesson/03-working-with-files.html#file-permissions" class="external-link">a
-previous episode</a> how to prevent overwriting our raw data files by
-setting restrictive file permissions.</p>
-<p>You can store any results that are generated from your analysis in
-the <code>results</code> folder. This guarantees that you won’t confuse
-results file and data files in six months or two years when you are
-looking back through your files in preparation for publishing your
-study.</p>
-<p>The <code>docs</code> folder is the place to store any written
-analysis of your results, notes about how your analyses were carried
-out, and documents related to your eventual publication.</p>
-</section><section><h2 class="section-heading" id="documenting-your-activity-on-the-project">Documenting your activity on the project<a class="anchor" aria-label="anchor" href="#documenting-your-activity-on-the-project"></a>
-</h2>
-<hr class="half-width">
-<p>When carrying out wet-lab analyses, most scientists work from a
-written protocol and keep a hard copy of written notes in their lab
-notebook, including any things they did differently from the written
-protocol. This detailed record-keeping process is just as important when
-doing computational analyses. Luckily, it’s even easier to record the
-steps you’ve carried out computational than it is when working at the
-bench.</p>
-<p>The <code>history</code> command is a convenient way to document all
-the commands you have used while analyzing and manipulating your project
-files. Let’s document the work we have done on our project so far.</p>
-<p>View the commands that you have used so far during this session using
-<code>history</code>:</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> history</span></code></pre>
 </div>
-<p>The history likely contains many more commands than you have used for
-the current project. Let’s view the last several commands that focus on
-just what we need for this project.</p>
-<p>View the last n lines of your history (where n = approximately the
-last few lines you think relevant). For our example, we will use the
-last 7:</p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> history <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 7</span></code></pre>
 </div>
-<div id="exercise-1" class="callout challenge">
+</div>
+</div>
+<div id="challenge-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-1" class="callout-inner">
-<h3 class="callout-title">Exercise</h3>
+<div id="challenge-1" class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
-<p>Using your knowledge of the shell, use the append redirect
-<code>&gt;&gt;</code> to create a file called
-<code>dc_workshop_log_XXXX_XX_XX.sh</code> (Use the four-digit year,
-two-digit month, and two digit day, e.g.
-<code>dc_workshop_log_2024_06_24.sh</code>)</p>
+
 </div>
 </div>
 </div>
@@ -4279,164 +4284,14 @@ two-digit month, and two digit day, e.g.
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> history <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 7 <span class="op">&gt;&gt;</span> dc_workshop_log_2024_06_24.sh</span></code></pre>
-</div>
-<p>Note we used the last 7 lines as an example, the number of lines may
-vary.</p>
+<p>You can add a line with at least three colons and a
+<code>solution</code> tag.</p>
 </div>
 </div>
 </div>
 </div>
-<p>You may have noticed that your history contains the
-<code>history</code> command itself. To remove this redundancy from our
-log, let’s use the <code>nano</code> text editor to fix the file:</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> nano dc_workshop_log_2024_06_24.sh</span></code></pre>
-</div>
-<p>(Remember to replace the <code>2024_06_24</code> with your workshop
-date.)</p>
-<p>From the <code>nano</code> screen, you can use your cursor to
-navigate, type, and delete any redundant lines.</p>
-<div id="navigating-in-nano" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="navigating-in-nano" class="callout-inner">
-<h3 class="callout-title">Navigating in Nano</h3>
-<div class="callout-content">
-<p>Although <code>nano</code> is useful, it can be frustrating to edit
-documents, as you can’t use your mouse to navigate to the part of the
-document you would like to edit. Here are some useful keyboard shortcuts
-for moving around within a text document in <code>nano</code>. You can
-find more information by typing <kbd>Ctrl</kbd>-<kbd>G</kbd> within
-<code>nano</code>.</p>
-<table class="table">
-<colgroup>
-<col width="10%">
-<col width="89%">
-</colgroup>
-<thead><tr class="header">
-<th>key</th>
-<th>action</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>
-<kbd>Ctrl</kbd>-<kbd>Space</kbd> OR
-<kbd>Ctrl</kbd>-<kbd>→</kbd>
-</td>
-<td>to move forward one word</td>
-</tr>
-<tr class="even">
-<td>
-<kbd>Alt</kbd>-<kbd>Space</kbd> OR <kbd>Esc</kbd>-<kbd>Space</kbd>
-OR <kbd>Ctrl</kbd>-<kbd>←</kbd>
-</td>
-<td>to move back one word</td>
-</tr>
-<tr class="odd">
-<td>
-<kbd>Ctrl</kbd>-<kbd>A</kbd>
-</td>
-<td>to move to the beginning of the current line</td>
-</tr>
-<tr class="even">
-<td>
-<kbd>Ctrl</kbd>-<kbd>E</kbd>
-</td>
-<td>to move to the end of the current line</td>
-</tr>
-<tr class="odd">
-<td>
-<kbd>Ctrl</kbd>-<kbd>W</kbd>
-</td>
-<td>to search</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>Add a date line and comment to the line where you have created the
-directory. Recall that any text on a line after a <code>#</code> is
-ignored by bash when evaluating the text as code. For example:</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># 2024_06_24   </span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co"># Created sample directories for the Data Carpentry workshop  </span></span></code></pre>
-</div>
-<p>Next, remove any lines of the history that are not relevant by
-navigating to those lines and using your delete key. Save your file and
-close <code>nano</code>.</p>
-<p>Your file should look something like this:</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># 2024_06_24
-# Created sample directories for the Data Carpentry workshop
-
-mkdir dc_workshop
-mkdir dc_workshop/docs
-mkdir dc_workshop/data
-mkdir dc_workshop/results</code></pre>
-</div>
-<p>If you keep this file up to date, you can use it to re-do your work
-on your project if something happens to your results files. To
-demonstrate how this works, first delete your <code>dc_workshop</code>
-directory and all of its subdirectories. Look at your directory contents
-to verify the directory is gone.</p>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-r</span> dc_workshop</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>untrimmed_fastq	dc_workshop_log_2024_06_24.sh</code></pre>
-</div>
-<p>Then run your workshop log file as a bash script. You should see the
-<code>dc_workshop</code> directory and all of its subdirectories
-reappear.</p>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> bash dc_workshop_log_2024_06_24.sh</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>untrimmed_fastq	dc_workshop dc_workshop_log_2024_06_24.sh</code></pre>
-</div>
-<p>It’s important that we keep our workshop log file outside of our
-<code>dc_workshop</code> directory if we want to use it to recreate our
-work. It’s also important for us to keep it up to date by regularly
-updating with the commands that we used to generate our results
-files.</p>
-<p>Congratulations! You’ve finished your introduction to using the shell
-for genomics projects. You now know how to navigate your file system,
-create, copy, move, and remove files and directories, and automate
-repetitive tasks using scripts and wildcards. With this solid
-foundation, you’re ready to move on to apply all of these new skills to
-carrying out more sophisticated bioinformatics analysis work. Don’t
-worry if everything doesn’t feel perfectly comfortable yet. We’re going
-to have many more opportunities for practice as we move forward on our
-bioinformatics journey!</p>
-<div class="section level3">
-<h3 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h3>
-<p><a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424" class="external-link">A
-Quick Guide to Organizing Computational Biology Projects</a></p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -4445,9 +4300,10 @@ Quick Guide to Organizing Computational Biology Projects</a></p>
 <h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
-<li>Spend the time to organize your file system when you start a new
-project. Your future self will thank you!</li>
-<li>Always save a write-protected copy of your raw data.</li>
+<li>Use common Unix tools to work with specialized file formats for
+biological data</li>
+<li>Look for less common tools that may be more efficient or more
+quickly accessible to increase your productivity.</li>
 </ul>
 </div>
 </div>
