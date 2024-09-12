@@ -60,3 +60,6 @@ renv/sandbox/
 
 # macOS 
 .DS_Store
+
+# hide logistics files
+hide/

@@ -207,6 +207,32 @@ This isn't necessary to follow along (in fact, your prompt may have other helpfu
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+When you type something in at a bash command-line prompt, it **Reads** the input, **Evaluates** it, then **Prints** the results, then does this over and over in a **Loop**. This behavior is called a **REPL** – a __**R**__**ead**, __**E**__**val**, __**P**__**rint** __**L**__**oop**.
+
+Many programming language environments have REPLs – Python and R for example. The input to the bash REPL is a *command*. Here are some examples:
+
+```
+ls               # example 1 - no options or arguments
+ls -l            # example 2 - one "short" (single character) option (-l)
+ls --help        # example 3 - one "long" (word) option (--help)
+ls .profile      # example 4 - one argument, a file name (.profile)
+ls --width=20    # example 5 - a long option with a value (--width is the option, 20 is the value)
+ls -w 20         # example 6 - a short option w/a value, as above, where -w is the same as --width
+ls -l -a -h      # example 7 - three short options entered separately (-l -a -h)
+ls -lah          # example 8 - three short options that can be combined after a dash (-lah)
+```
+A *command* consists of:
+
+- The *command* name – here **ls** (**list** files)
+  - A command can be any of the built-in Linux/Unix commands, or the name of a user-written script or program
+- One or more *options*, usually noted with a leading *dash* (-) or *double-dash* (--).
+  - **-l** in example 2 (long listing)
+  - **--help** in example 3
+  - Options are __optional__ – they do not have to be supplied (e.g. example 1 above)
+- One or more command-line *arguments*, which are often (but not always) file names; these are often optional
+  - e.g. .profile in example 4. 
+The shell executes the command line input when it sees a *linefeed*, which happens when you press **Enter** after entering the command.
+
 Let's find out where we are by running a command called `pwd`
 (which stands for "print working directory").
 At any moment, our **current working directory**
