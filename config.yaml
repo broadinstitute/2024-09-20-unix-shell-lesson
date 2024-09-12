@@ -1,4 +1,3 @@
----
 #------------------------------------------------------------
 # Values for this lesson.
 #------------------------------------------------------------
@@ -9,32 +8,32 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
-carpentry: "incubator"
+carpentry: 'incubator'
 
 # Overall title for pages.
-title: "The Unix Shell"
+title: 'The Unix Shell'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: "2024-04-24"
+created: '2024-04-24'
 
 # Comma-separated list of keywords for the lesson
-keywords: "lesson"
+keywords: 'lesson'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: "beta"
+life_cycle: 'beta'
 
 # License of the lesson materials (recommended CC-BY 4.0)
-license: "CC-BY 4.0"
+license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: "https://github.com/broadinstitute/2024-09-20-unix-shell-lesson"
+source: 'https://github.com/broadinstitute/2024-09-20-unix-shell-lesson'
 
 # Default branch of your lesson
-branch: "main"
+branch: 'main'
 
 # Who to contact if there are any issues
-contact: "cb-unix-admin@broadinstitute.org"
+contact: 'cb-unix-admin@broadinstitute.org'
 
 # Navigation ------------------------------------------------
 #
@@ -59,29 +58,32 @@ contact: "cb-unix-admin@broadinstitute.org"
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes:
-  - 01-introduction.md
-  - 02-the-filesystem.md
-  - 03-working-with-files.md
-  - 04-redirection.md
-  - 05-writing-scripts.md
-  - 06-organization.md
+episodes: 
+- 01-introduction.md
+- 02-the-filesystem.md
+- 03-working-with-files.md
+- 04-redirection.md
+- 05-writing-scripts.md
+- 06-bonus-material.Rmd
 
 # Information for Learners
-learners:
-  - setup.md
-  - shellCheatSheet.md
-  - reference.md
+learners: 
+- setup.md
+- Extra_lesson.md
+- organization.md
+- shellCheatSheet.md
+- reference.md
 
 # Information for Instructors
-instructors:
-  - instructor-notes.md
-  - Extra_lesson.md
+instructors: 
+- instructor-notes.md
 
 # Learner Profiles
-profiles:
+profiles: 
+
 # Customisation ---------------------------------------------
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
+
 
