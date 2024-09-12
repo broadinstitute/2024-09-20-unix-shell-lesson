@@ -233,6 +233,8 @@ A *command* consists of:
   - e.g. .profile in example 4. 
 The shell executes the command line input when it sees a *linefeed*, which happens when you press **Enter** after entering the command.
 
+(REPL & command breakdown from UTAustin's fantastic [Intro to Unix](https://cloud.wikis.utexas.edu/wiki/spaces/CbrsIntroUnix) wiki)
+
 Let's find out where we are by running a command called `pwd`
 (which stands for "print working directory").
 At any moment, our **current working directory**
