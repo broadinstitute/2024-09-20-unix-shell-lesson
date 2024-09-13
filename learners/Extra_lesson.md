@@ -8,7 +8,7 @@ Let's use the tools we've added to our tool kit so far, along with a few new one
 
 ```bash
 $ cd
-$ wget https://github.com/jlchang/2024-06-21-unix-shell-lesson/raw/main/learners/files/sra_metadata.zip
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/sra_metadata.zip
 $ unzip sra_metadata.zip
 $ cd sra_metadata
 ```
