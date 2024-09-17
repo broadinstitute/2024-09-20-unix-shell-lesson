@@ -70,7 +70,7 @@ episodes:
 # Information for Learners
 learners:
   - setup.md
-   Extra_lesson.md
+  - Extra_lesson.md
   - organization.md
   - shellCheatSheet.md
   - reference.md
