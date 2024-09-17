@@ -43,6 +43,21 @@ nucleotide at that position in the DNA sequence.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Determining quality
+
+In this lesson, we're going to be manually searching for strings of `N`s within our sequence
+results to illustrate some principles of file searching. It can be really useful to do this
+type of searching to get a feel for the quality of your sequencing results, however, in your
+research you will most likely use a bioinformatics tool that has a built-in program for
+filtering out low-quality reads. You can learn how to use one such tool in
+[this Data Carpentries lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control).
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 We'll search for strings inside of our fastq files. Usually, it's best to minimize the number of copies of data so there's a single "source of truth" to reference. For this workshop, we're going to have you make a link to the files in your home directory. Soft links (using `ln -s`) can be thought of as an alias or shortcut to data at a different physical location. 
 
 ```bash
@@ -68,22 +83,8 @@ $ cd untrimmed_fastq
 
 ::::::::::::::::::::::::::::::::::::::::::
 
-Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Determining quality
-
-In this lesson, we're going to be manually searching for strings of `N`s within our sequence
-results to illustrate some principles of file searching. It can be really useful to do this
-type of searching to get a feel for the quality of your sequencing results, however, in your
-research you will most likely use a bioinformatics tool that has a built-in program for
-filtering out low-quality reads. You can learn how to use one such tool in
-[this Data Carpentries lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control).
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-Let's search for the string NNNNNNNNNN in the SRR098026 file:
+Now that we have access to the data from our home directory, let's search for the string NNNNNNNNNN in the SRR098026 file (that's 10 N's):
 
 ```bash
 $ grep NNNNNNNNNN SRR098026.fastq
@@ -426,10 +427,9 @@ reads that we've found. We created the files to store the reads and then counted
 the file to see how many reads matched our criteria. There's a way to do this, however, that
 doesn't require us to create these intermediate files - the pipe command (`|`).
 
-This is probably not a key on
-your keyboard you use very much, so let's all take a minute to find that key.
-In the UK and US keyboard layouts, and several others,
-the `|` character can be found using the key combination <kbd>Shift</kbd>\+<kbd>\</kbd>.
+This is probably not a key you use very much, so let's all take a minute to find that key.  In the UK and US keyboard layouts, and several others,
+the `|` character can be found using the key combination <kbd>Shift</kbd>\+<kbd>\\</kbd>. 
+The backspace key is typically found near the <kbd>Return</kbd> or <kbd>Enter</kbd> key.
 This may be different for other language-specific layouts.
 
 What `|` does is take the output that is scrolling by on the terminal and uses that output as input to another command.
@@ -504,7 +504,7 @@ not interpret the pattern as an extended option (starting with --).
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Custom `grep` control
+## Custom &#xfeff;`grep`&#xfeff; control
 
 Use `man grep` to read more about other options to customize the output of `grep` including extended options,
 anchoring characters, and much more.
@@ -648,14 +648,14 @@ Inside our for loop, we create a new name variable. We call the basename functio
 ```bash
 $ for filename in *.fastq
 > do
-> name=$(basename ${filename}.fastq)
+> name=$(basename ${filename} .fastq)
 > echo ${name}
 > done
 ```
 
 For this alternate one-liner, notice we also separate commands in the `do` clause with semicolons:
 ```bash
-$ for filename in *.fastq; do name=$(basename ${filename}.fastq); echo ${name}; done
+$ for filename in *.fastq; do name=$(basename ${filename} .fastq); echo ${name}; done
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge

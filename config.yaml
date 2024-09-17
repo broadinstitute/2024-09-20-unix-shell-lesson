@@ -1,3 +1,4 @@
+---
 #------------------------------------------------------------
 # Values for this lesson.
 #------------------------------------------------------------
@@ -59,20 +60,20 @@ contact: 'cb-unix-admin@broadinstitute.org'
 
 # Order of episodes in your lesson
 episodes:
-- 01-introduction.md
-- 02-the-filesystem.md
-- 03-working-with-files.md
-- 04-redirection.md
-- 05-writing-scripts.md
-- 06-bonus-material.Rmd
+  - 01-introduction.md
+  - 02-the-filesystem.md
+  - 03-working-with-files.md
+  - 04-redirection.md
+  - 05-writing-scripts.md
+  - 06-bonus-material.Rmd
 
 # Information for Learners
 learners:
-- setup.md
-- Extra_lesson.md
-- organization.md
-- shellCheatSheet.md
-- reference.md
+  - setup.md
+   Extra_lesson.md
+  - organization.md
+  - shellCheatSheet.md
+  - reference.md
 
 # Information for Instructors
 instructors:
