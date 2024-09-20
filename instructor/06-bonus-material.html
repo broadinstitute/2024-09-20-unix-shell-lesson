@@ -326,7 +326,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Practical examples</h1>
-        <p>Last updated on 2024-09-12 |
+        <p>Last updated on 2024-09-20 |
 
         <a href="https://github.com/broadinstitute/2024-09-20-unix-shell-lesson/edit/main/episodes/06-bonus-material.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -367,6 +367,8 @@ cell RNAseq data)</li>
 </div>
 </div>
 </div>
+<p>Apologies - this section is still being refined. The general examples
+commands are shown but the expected outputs still need to be added.</p>
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
 <hr class="half-width"><p>Unix/Linux provides many small tools and utilities that can easily
 interact with each other using their built-in Input and Output streams,
@@ -375,15 +377,81 @@ without writing a formal program or script.</p>
 <p>This bonus section provides some examples of how to use Unix for
 biology-specific tasks.</p>
 <div class="section level3">
+<h3 id="data-wrangling-using-grep-pipes-and-file-redirection">Data wrangling using grep, pipes and file redirection<a class="anchor" aria-label="anchor" href="#data-wrangling-using-grep-pipes-and-file-redirection"></a></h3>
+<p>Background: The <a href="https://ccb.jhu.edu/chess/index.shtml?t=release" class="external-link">CHESS gene
+catalog</a> curates the set of all human genes and their transcripts
+through analysis of GTEx RNA sequencing data and manual assessment of
+RefSeq and GENCODE annotations and overlap. This catalog reports a
+different count of protein-coding genes in the human genome compared to
+RefSeq and GENCODE. To identify the overlap of genes across all three
+annotations sets, we need the total list of protein-coding gene names by
+extracting them from the annotation files.</p>
+<div class="section level4">
+<h4 id="task-generate-file-with-unique-list-of-protein-coding-gene-names-from-chess-annotation-file-gff">Task: generate file with unique list of protein-coding gene names
+from CHESS annotation file (GFF)<a class="anchor" aria-label="anchor" href="#task-generate-file-with-unique-list-of-protein-coding-gene-names-from-chess-annotation-file-gff"></a></h4>
+<p>Download cb_unix_shell.tgz to your home directory and unpack it.</p>
+<pre><code>$ cd
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/refs/heads/main/learners/files/chess3.1.3.GRCh38.assembly.gff.gz
+$ gunzip chess3.1.3.GRCh38.assembly.gff.gz</code></pre>
+<p>First head the file to see the signature of a protein-coding gene in
+the file</p>
+<pre><code>$ head chess3.1.3.CHM13.assembly.gff</code></pre>
+<pre><code>##gff-version 3
+#!gff-spec-version 1.21
+chr1	CHESS	gene	11874	14409	.	+	.	ID=CHS.1;gene_name=DDX11L1;gene_type=transcribed_pseudogene
+chr1	RefSeq	transcript	11874	14409	.	+	.	ID=CHS.1.1;Parent=CHS.1;gene_name=DDX11L1;gene_type=transcribed_pseudogene;db_xref=RefSeq:NR_046018.2,GENCODE:ENST00000456328.2;assembly_id=NA;cds_adjustment_status=0;exon_adjustment_status=0;original_source=BestRefSeq
+chr1	RefSeq	exon	11874	12227	.	+	.	Parent=CHS.1.1;gene_name=DDX11L1
+chr1	RefSeq	exon	12613	12721	.	+	.	Parent=CHS.1.1;gene_name=DDX11L1
+chr1	RefSeq	exon	13221	14409	.	+	.	Parent=CHS.1.1;gene_name=DDX11L1
+chr1	CHESS	gene	14362	29370	.	-	.	ID=CHS.2;gene_name=WASH7P;gene_type=transcribed_pseudogene
+chr1	RefSeq	transcript	14362	29370	.	-	.	ID=CHS.2.1;Parent=CHS.2;gene_name=WASH7P;gene_type=transcribed_pseudogene;db_xref=RefSeq:NR_024540.1;assembly_id=NA;cds_adjustment_status=0;exon_adjustment_status=0;original_source=BestRefSeq
+chr1	RefSeq	exon	14362	14829	.	-	.	Parent=CHS.2.1;gene_name=WASH7P`</code></pre>
+<p>It seems we can locate protein coding gene names in the file with the
+following search:</p>
+<pre><code>;gene_name=DNASE1;gene_type=protein_coding</code></pre>
+<p>… where the gene “DNASE1” could be replaced with any gene name.</p>
+<p>To identify such a string with any gene name inserted, we recognize
+that a gene name may contain uppercase letters, lowercase letters,
+numbers, or hyphens. We therefore turn to <a href="https://regex101.com/" class="external-link uri">https://regex101.com/</a> to
+see if we can devise an appropriate regular expression to identify the
+string above containing any gene name</p>
+<p>After identifying an appropriate regex, we grep the file for these
+lines, instruct to only report the exact matching sequence (-o), and
+save the results to a text file</p>
+<pre><code> grep -o ';gene_name=[a-zA-Z0-9-]*;gene_type=protein_coding' chess3.1.3.CHM13.assembly.gff | uniq &gt; chess3.1.3_genes.txt</code></pre>
+<p>Isolate individual gene names from the matching lines</p>
+<pre><code>grep -o "[A-Z][a-zA-Z0-9-]*" chess3.1.3_genes_temp.txt | sort &gt;chess3.1.3_genes.txt</code></pre>
+<p>Alternatively, this final clean up step can be done with sed</p>
+<pre><code>grep -o ';gene_name=[a-zA-Z0-9-]*;gene_type=protein_coding' chess3.1.3.CHM13.assembly.gff | uniq &gt; newfile.txt
+sed 's/;gene_name=//' newfile.txt &gt; newnewfile.text
+sed 's/;gene_type=protein_coding//' newnewfile.text &gt; justthegenes.txt</code></pre>
+</div>
+</div>
+<div class="section level3">
 <h3 id="introducing-h5ls-a-unix-tool-to-peek-into-anndata-objects">Introducing <strong>h5ls</strong>, a Unix tool to peek into AnnData
 objects<a class="anchor" aria-label="anchor" href="#introducing-h5ls-a-unix-tool-to-peek-into-anndata-objects"></a></h3>
-<p>&lt;show what head <anndata> file looks like&gt;</anndata></p>
+<p>Let’s get an example h5ad file and put it in our home directory</p>
+<pre><code>$ cd
+$ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/refs/heads/main/learners/files/example.h5ad</code></pre>
 <p>If you have an AnnData file locally AND you have the hdf5 library
 installed locally (which you do if you have the AnnData or ScanPy
 library installed), you can use the hdf5 command line tool h5ls to
-quickly peek inside an AnnData file. Example:</p>
-<pre><code>&gt; h5ls unconventional.h5ad/obs
-G2M_score                Dataset {700}
+quickly peek inside an AnnData file. HDF5 files have two types of
+objects, Datasets and Groups. Example:</p>
+<pre><code>&gt; h5ls example.h5ad</code></pre>
+<pre><code>X                        Dataset {700, 765}
+layers                   Group
+obs                      Group
+obsm                     Group
+obsp                     Group
+raw                      Group
+uns                      Group
+var                      Group
+varm                     Group
+varp                     Group</code></pre>
+<p>Go deeper by appending a Group name to the file:</p>
+<pre><code>&gt; h5ls example.h5ad/obs</code></pre>
+<pre><code>G2M_score                Dataset {700}
 S_score                  Dataset {700}
 bulk_labels              Group
 index                    Dataset {700}
@@ -392,84 +460,13 @@ n_counts                 Dataset {700}
 n_genes                  Dataset {700}
 percent_mito             Dataset {700}
 phase                    Group</code></pre>
-<p>Maybe the top level isn’t enough information, go deeper with
-<strong>h5ls -r</strong>:</p>
-<pre><code>&gt; h5ls -r unconventional.h5ad
-/                        Group
-/X                       Dataset {700, 765}
-/layers                  Group
-/obs                     Group
-/obs/G2M_score           Dataset {700}
-/obs/S_score             Dataset {700}
-/obs/bulk_labels         Group
-/obs/bulk_labels/categories Dataset {10}
-/obs/bulk_labels/codes   Dataset {700}
-/obs/index               Dataset {700}
-/obs/louvain             Group
-/obs/louvain/categories  Dataset {11}
-/obs/louvain/codes       Dataset {700}
-/obs/n_counts            Dataset {700}
-/obs/n_genes             Dataset {700}
-/obs/percent_mito        Dataset {700}
-/obs/phase               Group
-/obs/phase/categories    Dataset {3}
-/obs/phase/codes         Dataset {700}
-/obsm                    Group
-/obsm/X_pca              Dataset {700, 50}
-/obsm/X_umap             Dataset {700, 2}
-/obsp                    Group
-/obsp/connectivities     Group
-/obsp/connectivities/data Dataset {9992/Inf}
-/obsp/connectivities/indices Dataset {9992/Inf}
-/obsp/connectivities/indptr Dataset {701/Inf}
-/obsp/distances          Group
-/obsp/distances/data     Dataset {6300/Inf}
-/obsp/distances/indices  Dataset {6300/Inf}
-/obsp/distances/indptr   Dataset {701/Inf}
-/raw                     Group
-/raw/X                   Group
-/raw/X/data              Dataset {174400/Inf}
-/raw/X/indices           Dataset {174400/Inf}
-/raw/X/indptr            Dataset {701/Inf}
-/raw/var                 Group
-/raw/var/index           Dataset {765}
-/raw/varm                Group
-/uns                     Group
-/uns/bulk_labels_colors  Dataset {10}
-/uns/louvain             Group
-/uns/louvain/params      Group
-/uns/louvain/params/random_state Dataset {1}
-/uns/louvain/params/resolution Dataset {1}
-/uns/louvain_colors      Dataset {11}
-/uns/neighbors           Group
-/uns/neighbors/params    Group
-/uns/neighbors/params/method Dataset {SCALAR}
-/uns/neighbors/params/n_neighbors Dataset {1}
-/uns/pca                 Group
-/uns/pca/variance        Dataset {50}
-/uns/pca/variance_ratio  Dataset {50}
-/uns/rank_genes_groups   Group
-/uns/rank_genes_groups/names Dataset {100}
-/uns/rank_genes_groups/params Group
-/uns/rank_genes_groups/params/groupby Dataset {SCALAR}
-/uns/rank_genes_groups/params/method Dataset {SCALAR}
-/uns/rank_genes_groups/params/reference Dataset {SCALAR}
-/uns/rank_genes_groups/params/use_raw Dataset {1}
-/uns/rank_genes_groups/scores Dataset {100}
-/var                     Group
-/var/dispersions         Dataset {765}
-/var/dispersions_norm    Dataset {765}
-/var/highly_variable     Dataset {765}
-/var/index               Dataset {765}
-/var/means               Dataset {765}
-/var/n_counts            Dataset {765}
-/varm                    Group
-/varm/PCs                Dataset {765, 50}
-/varp                    Group</code></pre>
+<p>Too focused? Get the entire directory tree for the file with
+<strong>h5ls -r</strong></p>
+<pre><code>&gt; h5ls -r example.h5ad</code></pre>
 <p>Too much information? Do a more focused recursive
 <strong>h5ls</strong> by specifying a deeper path in the object (in this
 example, the deeper path is ‘/obs’):</p>
-<pre><code>&gt; h5ls -r unconventional.h5ad/obs
+<pre><code>&gt; h5ls -r example.h5ad/obs
 /G2M_score               Dataset {700}
 /S_score                 Dataset {700}
 /bulk_labels             Group
@@ -489,21 +486,18 @@ example, the deeper path is ‘/obs’):</p>
 have nested datasets named categories and codes these are often Pandas’
 categorical data. You can get the unique list of categorical labels with
 <strong>h5dump -d</strong>:</p>
-<pre><code>&gt; h5dump -d "obs/bulk_labels/categories" unconventional.h5ad
-HDF5 "unconventional.h5ad" {
-DATASET "obs/bulk_labels/categories" {
+<pre><code>&gt; h5dump -d "obs/phase/categories" example.h5ad</code></pre>
+<pre><code>HDF5 "example.h5ad" {
+DATASET "obs/phase/categories" {
    DATATYPE  H5T_STRING {
       STRSIZE H5T_VARIABLE;
       STRPAD H5T_STR_NULLTERM;
       CSET H5T_CSET_UTF8;
       CTYPE H5T_C_S1;
    }
-   DATASPACE  SIMPLE { ( 10 ) / ( 10 ) }
+   DATASPACE  SIMPLE { ( 3 ) / ( 3 ) }
    DATA {
-   (0): "CD4+/CD25 T Reg", "CD4+/CD45RA+/CD25- Naive T",
-   (2): "CD4+/CD45RO+ Memory", "CD8+ Cytotoxic T",
-   (4): "CD8+/CD45RA+ Naive Cytotoxic", "CD14+ Monocyte", "CD19+ B", "CD34+",
-   (8): "CD56+ NK", "Dendritic"
+   (0): "G1", "G2M", "S"
    }
    ATTRIBUTE "encoding-type" {
       DATATYPE  H5T_STRING {
@@ -545,7 +539,9 @@ DATASET "obs/bulk_labels/categories" {
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
+  <h4 class="accordion-header" id="headingSolution1">
+  Output
+  </h4>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
@@ -554,30 +550,6 @@ DATASET "obs/bulk_labels/categories" {
 </h3>
 <pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-1" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1" class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
 </div>
 </div>
 </div>
@@ -659,8 +631,8 @@ any links that you are not going to use.
   "url": "https://broadinstitute.github.io/2024-09-20-unix-shell-lesson/instructor/06-bonus-material.html",
   "identifier": "https://broadinstitute.github.io/2024-09-20-unix-shell-lesson/instructor/06-bonus-material.html",
   "dateCreated": "2024-04-24",
-  "dateModified": "2024-09-12",
-  "datePublished": "2024-09-17"
+  "dateModified": "2024-09-20",
+  "datePublished": "2024-09-20"
 }
 
   </script><script>
