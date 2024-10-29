@@ -70,6 +70,7 @@ episodes:
 # Information for Learners
 learners:
   - setup.md
+  - Unix_pt2_review.Rmd
   - Extra_lesson.md
   - organization.md
   - shellCheatSheet.md
