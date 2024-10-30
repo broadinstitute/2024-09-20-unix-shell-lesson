@@ -29,7 +29,49 @@ characters (sometimes called a string) or a particular pattern
 (which can be specified using something called regular expressions). We're not going to work with
 regular expressions in this lesson, and are instead going to specify the strings
 we are searching for.
-Let's give it a try!
+
+Files are staged for this workshop in /broad/hptmp but data is only allowed to stay on that temporary storage for two weeks. Let's check that the data we want to use is in the right place. 
+
+```bash
+$ ls /broad/hptmp/computing_basics/untrimmed_fastq/SRR09*
+```
+If you see the following output, the data is where we expected it to be.
+```output
+/broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq
+/broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq
+```
+If instead you see an error that `untrimmed_fastq` is missing, you'll need to download the data to your home directory before you can proceed with this episode.
+```output
+ls: cannot access /broad/hptmp/computing_basics/untrimmed_fastq/SRR09*: No such file or directory
+```
+
+
+:::::::::::::::::::::::::::::::::::::::::: spoiler
+
+## What if untrimmed_fastq is missing in /broad/hptmp/computing_basics?
+
+Download `untrimmed_fastq.zip` to your home directory and unpack it.
+
+```bash
+$ cd
+wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/untrimmed_fastq.zip
+$ unzip untrimmed_fastq.zip
+$ cd untrimmed_fastq
+```
+
+::::::::::::::::::::::::::::::::::::::::::
+
+Usually, it's best to minimize the number of copies of data so there's a single "source of truth" to reference. If the data is available in /broad/hptmp/computing_basics/untrimmed_fastq, we're going to have you make a link to the files in your home directory. Soft links (using `ln -s`) can be thought of as an alias or shortcut to data at a different physical location. 
+
+You should skip the following instructions if you've downloaded `untrimmed_fastq.zip` to your home directory and unpacked it (ie. if you followed the instruction in "What if untrimmed_fastq is missing in /broad/hptmp/computing_basics?")
+
+```bash
+$ cd 
+$ mkdir untrimmed_fastq
+$ cd untrimmed_fastq
+$ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026.fastq
+$ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq SRR097977.fastq
+```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -58,33 +100,7 @@ filtering out low-quality reads. You can learn how to use one such tool in
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We'll search for strings inside of our fastq files. Usually, it's best to minimize the number of copies of data so there's a single "source of truth" to reference. For this workshop, we're going to have you make a link to the files in your home directory. Soft links (using `ln -s`) can be thought of as an alias or shortcut to data at a different physical location. 
-
-```bash
-$ cd 
-$ mkdir untrimmed_fastq
-$ cd untrimmed_fastq
-$ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026.fastq
-$ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq SRR097977.fastq
-```
-
-:::::::::::::::::::::::::::::::::::::::::: spoiler
-
-## What if /broad/hptmp/computing_basics is missing?
-
-Download `untrimmed_fastq.zip` to your home directory and unpack it.
-
-```bash
-$ cd
-wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/main/learners/files/untrimmed_fastq.zip
-$ unzip untrimmed_fastq.zip
-$ cd untrimmed_fastq
-```
-
-::::::::::::::::::::::::::::::::::::::::::
-
-
-Now that we have access to the data from our home directory, let's search for the string NNNNNNNNNN in the SRR098026 file (that's 10 N's):
+Let's search for the string NNNNNNNNNN in the SRR098026 file (that's 10 N's):
 
 ```bash
 $ grep NNNNNNNNNN SRR098026.fastq

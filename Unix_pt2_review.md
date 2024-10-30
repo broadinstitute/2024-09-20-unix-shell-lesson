@@ -16,8 +16,19 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-# Unix review
+:::::::::::::::::::::::::::::::::::::::::: spoiler
 
+## Before we begin
+
+Open the collaborative doc for our workshop http://broad.io/cb-unix-20241031
+
+If you haven't already, please complete your workshop setup https://broad.io/cb-unix-setup
+
+Feel free to browse today's lesson content
+::::::::::::::::::::::::::::::::::::::::::
+
+
+# Unix review
 
 
 ## Log onto the Broad login server
@@ -75,63 +86,92 @@ In Unix 101, part 1 we learned how to use `pwd` to find our current location wit
 We also learned how to use `cd` to change locations and `ls` to list the contents
 of a directory.
 
-Let's use these commands to navigate to the `cb_unix_shell` directory.
+## Navigating Files and Directories
+
+Let's use these commands to navigate to the `cb_unix_shell` directory. First, change directory to your home directory and list the contents in the directory, just to make sure we know where we are.
 
 ```bash
-$ cd                       # change directory to your home directory
-$ ls                       # list the contents in the directory
-$ cd cb_unix_shell         # change to a subdirectory within your home directory
+$ cd
+$ ls
+```
+
+See the tilde (~) in your Unix prompt? This indicates you're in your Unix home directory.
+
+```output
+cb_unix_shell/	cb_unix_shell.tar
+```
+
+Now change to a subdirectory within your home directory.
+```bash
+$ cd cb_unix_shell
+```
+
+Notice that where the tilde was in your Unix prompt, you now see ~/cb_unix_shell. Your Broad Unix prompt is set up to show you your current working directory. Right now you're in the cb_unix_shell directory within your Unix home directory.
+
+Let's look at the content in the cb_unix_shell subdirectory.
+```bash
+$ ls
 ```
 
 ```output
--bash:login01:~ 123 $ cd
--bash:login01:~ 124 $ ls
-cb_unix_shell/	cb_unix_shell.tgz
--bash:login01:~ 125 $ cd cb_unix_shell 
--bash:login01:~/cb_unix_shell 126 $
+Dahl/  Seuss/  authors.txt  data  prodinfo454/
 ```
 
-Let's have a look around and then navigate to the `Dahl/James_and_the_Giant_Peach/` directory
+Let's have a look around. First, **p**rint your current **w**orking **d**irectory.
 
 ```bash
-$ pwd                      # print working directory
-$ ls -l                    # list directory contents using the long format
-$ cd ..                    # use a _relative path_ to go "up" a directory
-$ cd c<tab>/D<tab>/J<tab>  # use tab completion for efficiency and less typing
+$ pwd
 ```
+`pwd` will return show you the full path from the root directory to your current working directory
+
 ```output
--bash:login01:~/cb_unix_shell 126 $ pwd
 /home/unix/jlchang/cb_unix_shell
--bash:login01:~/cb_unix_shell 127 $ ls -l  
+```
+
+List the directory contents using the long format
+```bash
+$ ls -l
+```
+
+```output
 total 515
 drwxr-sr-x   4 jlchang sequence    94 May  8 01:53 Dahl/
 drwxr-sr-x   4 jlchang sequence    68 May  8 01:56 Seuss/
 -rw-r--r--   1 jlchang sequence   155 Mar 14  2013 authors.txt
 -rw-r--r--   1 jlchang sequence 19085 Mar 14  2013 data
 drwxr-sr-x 268 jlchang sequence 19483 May  8 01:55 prodinfo454/
--bash:login01:~/cb_unix_shell 128 $ cd ..
--bash:login01:~ 129 $ cd cb_unix_shell/Dahl/James_and_the_Giant_Peach/
--bash:login01:~/cb_unix_shell/Dahl/James_and_the_Giant_Peach/ 130 $
 ```
-Do you remember the special character tilde (~)? You can use it to help navigate directly to the `cb_unix_shell/prodinfo454` directory.
+
+Use the relative path **(..)** to go "up" a directory
+```bash
+$ cd ..  
+```
+Notice the path in your Unix prompt is back to tilde (~)
+
+Let's navigate to the `Dahl/James_and_the_Giant_Peach/` directory using tab completion for efficiency and less typing
 
 ```bash
-$ cd ~/c<tab>/p<tab>       # ~ is a special shortcut for your home directory
-```
-```output
--bash:login01:~/cb_unix_shell/Dahl/James_and_the_Giant_Peach/  130 $ cd ~/cb_unix_shell/prodinfo454/
--bash:login01:~/cb_unix_shell/prodinfo454 131 $
+$ cd c<tab>/D<tab>/J<tab> 
 ```
 
-`prodinfo454` is the directory where we had a ton of stuff. You can get a list of everything with `ls` but you can also be selective by using a wildcard. `*` matches zero or more characters while `?` matches exactly one character (or the end of line character).
+Thanks to tab completion, your command line should look like `cd cb_unix_shell/Dahl/James_and_the_Giant_Peach/`
+
+Use the tilde (~) special character to help navigate directly to the `cb_unix_shell/prodinfo454` directory in your home directory.
 
 ```bash
-$ ls                           # output skipped in the block below - too much!
-$ ls -d *snap*                 # list run folders from the snap machine
-$ ls -d R_2009_?2_*crinkle*    # list run folders from February or December for crinkle runs
+$ cd ~/c<tab>/p<tab>
 ```
+
+Your tab completed command line should look like `cd ~/cb_unix_shell/prodinfo454/`
+
+## Wildcards
+
+`prodinfo454` is the directory where we had a ton of stuff. You can get a list of everything with `ls` BUT you can also be selective by using a wildcard. `*` matches zero or more characters. Using `*`, you can list only run folders from the snap machine.
+```bash
+$ ls -d *snap*
+```
+
 ```output
--bash:login01:~/cb_unix_shell/prodinfo454 132 $ ls -d *crinkle*
 R_2009_01_16_11_50_39_snap_levesque_TresFusoUnoColiRUN647204/
 R_2009_01_30_12_11_52_snap_jdiaz_HMProchloroRUN702823/
 R_2009_06_19_11_34_42_snap_aholling_0619TFSnapRun646641/
@@ -142,30 +182,46 @@ R_2009_09_14_16_33_10_snap_aholling_HossBDayRun718349/
 R_2009_09_16_14_13_24_snap_krizzolo_091609KRRun718211/
 R_2009_10_02_11_21_01_snap_krizzolo_100209Run718213/
 R_2009_11_12_13_13_37_snap_krizzolo_111209_16s2_KRRun715342/
--bash:login01:~/cb_unix_shell/prodinfo454 133 $ ls -d R_2009_?2_*crinkle*
+```
+
+The `?` wildcard matches exactly one character. Can you see how using the `?` wildcard in this command line limits the listed run folders to crinkle runs from February or December 2009?
+```bash
+$ ls -d R_2009_?2_*crinkle* 
+```
+
+```output
 R_2009_02_18_13_14_30_crinkle_pfrere_TICycleReduxRUN705472/
 R_2009_12_04_11_12_45_crinkle_krizzolo_elgranvaronblastoRun720551/
 R_2009_12_08_13_19_52_crinkle_krizzolo_8regionKRRun720565/
 R_2009_12_14_11_22_09_crinkle_krizzolo_2regionKRRun722286/
 ```
 
-Now that we've reviewed how to move around, let's play with some files! Let's look in one of these directories and see what's in them. (Note: run folders hold a lot of information, we've removed the majority of the data, leaving only the log files.)
+Now that we've reviewed how to move around, let's play with some files! Let's look in one of these directories and see what's in them. (Note: run folders hold a lot of information, we've removed the majority of the data, leaving only the aaLog.txt files.)
 
 ```bash
-$ ls *Tues* 
-$ cd *Tues*             # if your wildcard matches more than one, cd will take the first          
-$ cat aaLog.txt         # output skipped in the block below - too long!
-$ head aaLog.txt        # show the first 10 lines
-$ tail aaLog.txt        # show the last 10 lines
+$ ls -d *Tues* 
 ```
 
 ```output
--bash:login01:~/cb_unix_shell/prodinfo454 134 $ ls -d *Tues* 
 R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071/
--bash:login01:~/cb_unix_shell/prodinfo454 135 $ cd *Tues* 
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 136 $ cat aaLog.txt
-<output skipped>
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 137 $ head aaLog.txt
+```
+
+
+```bash
+$ cd *Tues*             # if your wildcard matches more than one, cd will take the first          
+```
+
+Your command prompt should show `~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 ` as the path for your current working directory.
+
+## Examining Files
+
+```bash
+$ cat aaLog.txt         # output not shown below - too long!
+$ head !$               # use your history (!) and grab the last word ($) from the previous command
+```
+Variable substitution will result in this command line `head aaLog.txt`
+
+```output
 nPixelsUnderDCOffset = 11849 (0.070626 %)
 adjusting dc offset
 found 4 regions
@@ -176,7 +232,13 @@ region 3: center = 3598, width = 782
 range 0: start = 259, end = 781
 range 1: start = 1283, end = 1805
 range 2: start = 2323, end = 2845
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 138 $ tail aaLog.txt
+```
+`tail` will show the last 10 lines
+
+```bash
+$ tail aaLog.txt      
+```
+```output
 newApyraseWashPulseWidth = 202.298
 adjusted pulse width is 202
 changing micro's pulse width to 202
@@ -189,97 +251,151 @@ Run Complete Msg received
 run log ends
 ```
 
-You can use a paging file viewer to control your view of the file content.
+You can use a paging file viewer to control your view of the file content. Remember, <space> to proceed, q to quit. 
 ```bash
-$ less aaLog.txt        # use a paging file viewer; <space> to proceed, q to quit
+$ less aaLog.txt        
 ```
-
+## Creating, moving, copying, and removing
 Make a copy of a file, in your current working directory, your home directory, 
 
 ```bash
-$ cp aaLog.txt copy.txt        # make a copy with a different name
-$ ls                           # see your copy
-$ ls ~                         # what's in your home directory?
-$ cp aaLog.txt ~/copy2.txt     # make a copy in your home directory
-$ ls                           # what's in your current directory *Use up arrow 3x*
-$ ls ~                         # what's in your home directory now? *Use up arrow 3x*
+$ cp aaLog.txt copy.txt
+$ ls                           # see the copy you created
 ```
+
 ```output
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 139 $ cp aaLog.txt copy.txt  
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 140 $ ls
 aaLog.txt  copy.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 141 $ ls ~
+```
+Let's remind ourselves, what's in your home directory?
+```bash
+$ ls ~                        
+```
+
+```output
 cb_unix_shell/	cb_unix_shell.tar 
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 142 $ cp aaLog.txt ~/copy2.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 143 $ ls
+```
+Make a copy of aaLog.txt in your home directory, using the special character tilde (~).
+
+```bash
+$ cp aaLog.txt ~/copy2.txt     
+$ ls                           # Now what's in your current directory *Use up arrow 3x*
+```
+
+```output
 aaLog.txt  copy.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 144 $ ls ~
+```
+Compre with what's in your home directory - is it what you expected?
+
+```bash
+$ ls ~                      
+```
+
+```output
 cb_unix_shell/	cb_unix_shell.tar  copy2.txt
 ```
 
-Moving and renaming files is very similar but watch carefully! The differences are important
+## Moving and renaming files 
+These commands look similar to `cp` but be careful, the differences are important.
 
 ```bash
 $ mv aaLog.txt copy3.txt       # if the second argument for "mv" isn't a directory, you're renaming
-$ ls                           # notice aaLog.txt is gone, you renamed it!
-$ ls ~                         # what's in your home directory?
+$ ls                           
+```
+Notice aaLog.txt is gone, you renamed it!
+
+```output
+copy.txt  copy3.txt
+```
+Check what's in your home directory.
+
+```bash
+$ ls  ~     
+```
+
+```output
+cb_unix_shell/	cb_unix_shell.tar  copy2.txt
+```
+Move aaLog.txt to your home directory, using the special character tilde (~).
+```bash
 $ mv copy.txt ~                # tilde (~) shortcut for your home directory => moving, not renaming
-$ ls                           # what's in your current directory *Use up arrow 3x*
+$ ls                          
+```
+
+```output
+copy3.txt
+```
+```bash
 $ ls ~                         # what's in your home directory now? *Use up arrow 3x*
-$ mv copy.txt aaLog.txt        # rename one of the copies to restore aaLog.txt
+```
+
+```output
+cb_unix_shell/	cb_unix_shell.tar  copy.txt  copy2.txt
+```
+Rename one of the copies to restore aaLog.txt
+
+```bash
+$ mv copy3.txt aaLog.txt        # aaLog.txt is not a directory => renaming, not moving
 $ ls                           # what's in your current directory now? *Use up arrow 3x*
 ```
 
 ```output
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 145 $ mv aaLog.txt copy.txt  
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 146 $ ls
-copy.txt  copy3.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 147 $ ls ~
-cb_unix_shell/	cb_unix_shell.tar  copy2.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 148 $ mv copy3.txt ~
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 149 $ ls
-copy.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 150 $ ls ~
-cb_unix_shell/	cb_unix_shell.tar  copy2.txt  copy3.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 151 $ mv copy.txt aaLog.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 152 $ ls
 aaLog.txt
 ```
 
-Create a directory
+
+## Create a directory
 
 ```bash
-$ mkdir test                   # make a directory
-$ ls                           # see your new directory
-$ cp aaLog.txt test            # copy a file into the directory
-$ ls                           # what's in your current directory
-$ ls test                      # what's in your new directory?
-$ ls -R                        # recursively show what's in your current directory
-$ rmdir test                   # try to remove the test directory
-$ rm -rf test                  # force remove the test directory, recursively (include contents)
+$ mkdir test
 $ ls 
 ```
 
 ```output
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 153 $ mkdir test 
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 154 $ ls
+test 
+```
+Copy a file into the `test` directory
+
+```bash
+$ cp aaLog.txt test 
+$ ls 
+```
+```output
 aaLog.txt  test/
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 155 $ cp aaLog.txt test   
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 156 $ ls
-aaLog.txt  test/
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 157 $ ls test
+```
+What's in the `test` directory?
+```bash
+$ ls test                     
+
+```output
 aaLog.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 158 $ ls -R .:
+```
+List what's in your current directory, recursively
+```bash
+$ ls -R                        # 
+```
+```output
+.:
 aaLog.txt  test/
 
 ./test:
 aaLog.txt
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 159 $ rmdir test
+```
+```bash
+$ rmdir test                   # try to remove the test directory
+```
+You'll see this error because rmdir can only run on empty directories
+```output
 rmdir: failed to remove 'test': Directory not empty
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 160 $ rmdir -rf test
--bash:login01:~/cb_unix_shell/prodinfo454/R_2010_07_27_11_06_59_pop_jdiaz_dmTuesrun738071 161 $ ls
+```
+
+```bash
+$ rm -rf test                  # force remove the test directory, recursively (include contents)
+$ ls 
+```
+```output
 aaLog.txt
 ```
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - We've reviewed navigation, file content viewing, file manipulation. 
