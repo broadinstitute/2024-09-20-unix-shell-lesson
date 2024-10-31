@@ -171,10 +171,10 @@ $ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/refs/heads/m
 If you have an AnnData file locally AND you have the hdf5 library installed locally (which you do if you have the AnnData or ScanPy library installed), you can use the hdf5 command line tool h5ls to quickly peek inside an AnnData file. HDF5 files have two types of objects, Datasets and Groups.
 Example:
 
-```
+```bash
 > h5ls example.h5ad
 ```
-```
+```output
 X                        Dataset {700, 765}
 layers                   Group
 obs                      Group
@@ -189,10 +189,10 @@ varp                     Group
 
 Go deeper by appending a Group name to the file:
 
-```
+```bash
 > h5ls example.h5ad/obs
 ```
-```
+```output
 G2M_score                Dataset {700}
 S_score                  Dataset {700}
 bulk_labels              Group
@@ -205,12 +205,12 @@ phase                    Group
 ```
 
 Too focused? Get the entire directory tree for the file with **h5ls -r**
-```
+```bash
 > h5ls -r example.h5ad
 ```
 
 Too much information? Do a more focused recursive **h5ls** by specifying a deeper path in the object (in this example, the deeper path is '/obs'):
-```
+```output
 > h5ls -r example.h5ad/obs
 /G2M_score               Dataset {700}
 /S_score                 Dataset {700}
@@ -229,10 +229,10 @@ Too much information? Do a more focused recursive **h5ls** by specifying a deepe
 /phase/codes             Dataset {700}
 ```
 Notice that for AnnData objects, there are some Group objects that have nested datasets named categories and codes these are often Pandas' categorical data. You can get the unique list of categorical labels with **h5dump -d**:
-```
+```bash
 > h5dump -d "obs/phase/categories" example.h5ad
 ```
-```
+```output
 HDF5 "example.h5ad" {
 DATASET "obs/phase/categories" {
    DATATYPE  H5T_STRING {
@@ -272,25 +272,6 @@ DATASET "obs/phase/categories" {
 }
 }
 ```
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge
-
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
