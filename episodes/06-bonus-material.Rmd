@@ -1,5 +1,5 @@
 ---
-title: 'Bonus command line examples'
+title: 'Bioinformatics examples'
 teaching: 10
 exercises: 2
 ---
@@ -98,6 +98,7 @@ $ cut -f 2 chess3.1.3.GRCh38.assembly.gff | sort | uniq -c | sort -r
    1 ##gff-version 3
    1 #!gff-spec-version 1.21
 ```
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -115,34 +116,38 @@ grep "CHESS\tgene" chess3.1.3.GRCh38.assembly.gff | grep gene_type=protein_codin
 ```
 
 It seems protein coding gene names are listed in the file with the following syntax: 
-```
+```output
 ;gene_name=DNASE1;gene_type=protein_coding
 ```
 … where the gene “DNASE1” could be replaced with any gene name. 
 
-::::::::::::::::::::::::::::::::::::::: challenge
+:::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Alternative - use regular expressions to extract the gene names
 
 To identify such a string with any gene name inserted, we recognize that a gene name may contain uppercase letters, lowercase letters, numbers, or hyphens. We therefore turn to https://regex101.com/ to see if we can devise an appropriate regular expression to identify the string above containing any gene name
 
-::::::::::::::: solution
+:::::::::::::::  solution
 
-## Using a regular expression
+## Solution
 `grep` the file for these lines, using the regular expression so it only reports the exact matching sequence (-o), and save the results to a text file 
 
-```
+```bash
  grep -o ';gene_name=[a-zA-Z0-9-]*;gene_type=protein_coding' chess3.1.3.CHM13.assembly.gff | uniq > chess3.1.3_genes.txt
  
  sed 's/^.*gene_name=//' test | sed 's/;gene_type.*$//'
 ```
 Isolate individual gene names from the matching lines
-```
+```bash
 grep -o "[A-Z][a-zA-Z0-9-]*" chess3.1.3_genes_temp.txt | sort >chess3.1.3_genes.txt
+```
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
 
 
 
@@ -163,7 +168,7 @@ Next time, remember that you can also look up how a file format like [GFF format
 
 Let's get an example h5ad file and put it in our home directory
 
-```
+```bash
 $ cd
 $ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/refs/heads/main/learners/files/example.h5ad
 ```
