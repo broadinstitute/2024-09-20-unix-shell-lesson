@@ -1,5 +1,5 @@
 ---
-title: 'Practical examples'
+title: 'Bonus command line examples'
 teaching: 10
 exercises: 2
 ---
@@ -18,35 +18,32 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Apologies - this section is still being refined. The general examples commands are shown but the expected outputs still need to be added.
 
-## Introduction
+Unix/Linux provides many small tools and utilities that can easily interact with each other using their built-in input and output streams, allowing you to  perform complex data manipulations on the command line without writing a formal program or script.
 
-Unix/Linux provides many small tools and utilities that can easily interact with each other using their built-in Input and Output streams, allowing you to  perform complex data manipulations on the command line without writing a formal program or script.
+This bonus section provides some examples using Unix command line tools for biology-specific tasks.
 
-This bonus section provides some examples of how to use Unix for biology-specific tasks.
-
-### Data wrangling using grep, pipes and file redirection
+## Data wrangling using grep, pipes and file redirection
 
 Background: The [CHESS gene catalog](https://ccb.jhu.edu/chess/index.shtml?t=release) curates the set of all human genes and their transcripts through analysis of GTEx RNA sequencing data and manual assessment of RefSeq and GENCODE annotations and overlap. This catalog reports a different count of protein-coding genes in the human genome compared to RefSeq and GENCODE. To identify the overlap of genes across all three annotations sets, we need the total list of protein-coding gene names by extracting them from the annotation files. 
 
+### Task: generate the unique list of protein-coding gene names from the CHESS annotation file (GFF)
 
-#### Task: generate file with unique list of protein-coding gene names from CHESS annotation file (GFF)
+Download the CHESS GFF file (chess3.1.3.GRCh38.assembly.gff.gz) to your home directory and unpack it.
 
-Download cb_unix_shell.tgz to your home directory and unpack it.
-
-```
+```bash
 $ cd
 $ wget https://github.com/jlchang/cb-unix-shell-lesson-template/raw/refs/heads/main/learners/files/chess3.1.3.GRCh38.assembly.gff.gz
 $ gunzip chess3.1.3.GRCh38.assembly.gff.gz
 ```
 
-First head the file to see the signature of a protein-coding gene in the file
+Let's look at the file, can we figure out how a protein-coding gene is represented?
 
+```bash
+$ head chess3.1.3.GRCh38.assembly.gff
 ```
-$ head chess3.1.3.CHM13.assembly.gff
-```
-```
+
+```output
 ##gff-version 3
 #!gff-spec-version 1.21
 chr1	CHESS	gene	11874	14409	.	+	.	ID=CHS.1;gene_name=DDX11L1;gene_type=transcribed_pseudogene
@@ -56,31 +53,110 @@ chr1	RefSeq	exon	12613	12721	.	+	.	Parent=CHS.1.1;gene_name=DDX11L1
 chr1	RefSeq	exon	13221	14409	.	+	.	Parent=CHS.1.1;gene_name=DDX11L1
 chr1	CHESS	gene	14362	29370	.	-	.	ID=CHS.2;gene_name=WASH7P;gene_type=transcribed_pseudogene
 chr1	RefSeq	transcript	14362	29370	.	-	.	ID=CHS.2.1;Parent=CHS.2;gene_name=WASH7P;gene_type=transcribed_pseudogene;db_xref=RefSeq:NR_024540.1;assembly_id=NA;cds_adjustment_status=0;exon_adjustment_status=0;original_source=BestRefSeq
-chr1	RefSeq	exon	14362	14829	.	-	.	Parent=CHS.2.1;gene_name=WASH7P`
+chr1	RefSeq	exon	14362	14829	.	-	.	Parent=CHS.2.1;gene_name=WASH7P
 ```
-It seems we can locate protein coding gene names in the file with the following search: 
+
+
+In the file we see from the 2nd column that there are lines for features identified by CHESS and RefSeq. To get a better sense of all the different possible values, we can use Unix tools to extract and summarize for us.
+
+```bash
+$ cut -f 2 chess3.1.3.GRCh38.assembly.gff
+```
+
+We don't want to sift through 2.6 million values so let's use Unix' sort command to tell us all the unique values.
+
+```bash
+$ cut -f 2 chess3.1.3.GRCh38.assembly.gff | sort -u
+```
+
+```output
+#!gff-spec-version 1.21
+##gff-version 3
+CHESS
+GENCODE
+MANE
+RefSeq
+```
+
+::::::::::::::::::::::::::::::::::::::: challenge
+
+## Exercise
+Look up how the sort and uniq tools work. How would you find out how many lines of each type are in the file?
+
+::::::::::::::: solution
+
+## Solution
+```bash
+$ cut -f 2 chess3.1.3.GRCh38.assembly.gff | sort | uniq -c | sort -r
+```
+
+```output
+61921 GENCODE
+618423 CHESS
+413966 MANE
+1517005 RefSeq
+   1 ##gff-version 3
+   1 #!gff-spec-version 1.21
+```
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+After examining the file a bit more, we realize we're probably looking for lines that have "gene_type=protein_coding" in the ninth field.
+
+```bash
+grep gene_type=protein_coding chess3.1.3.GRCh38.assembly.gff | less
+```
+
+BUT we only want the genes identified by CHESS... so we can use grep to first filter for just the CHESS lines, then look for just the protein_coding lines
+
+```bash
+grep "CHESS\tgene" chess3.1.3.GRCh38.assembly.gff | grep gene_type=protein_coding | wc -l 
+```
+
+It seems protein coding gene names are listed in the file with the following syntax: 
 ```
 ;gene_name=DNASE1;gene_type=protein_coding
 ```
 … where the gene “DNASE1” could be replaced with any gene name. 
 
+::::::::::::::::::::::::::::::::::::::: challenge
+
+## Alternative - use regular expressions to extract the gene names
+
 To identify such a string with any gene name inserted, we recognize that a gene name may contain uppercase letters, lowercase letters, numbers, or hyphens. We therefore turn to https://regex101.com/ to see if we can devise an appropriate regular expression to identify the string above containing any gene name
 
-After identifying an appropriate regex, we grep the file for these lines, instruct to only report the exact matching sequence (-o), and save the results to a text file 
+::::::::::::::: solution
+
+## Using a regular expression
+`grep` the file for these lines, using the regular expression so it only reports the exact matching sequence (-o), and save the results to a text file 
 
 ```
  grep -o ';gene_name=[a-zA-Z0-9-]*;gene_type=protein_coding' chess3.1.3.CHM13.assembly.gff | uniq > chess3.1.3_genes.txt
+ 
+ sed 's/^.*gene_name=//' test | sed 's/;gene_type.*$//'
 ```
 Isolate individual gene names from the matching lines
 ```
 grep -o "[A-Z][a-zA-Z0-9-]*" chess3.1.3_genes_temp.txt | sort >chess3.1.3_genes.txt
-```
-Alternatively, this final clean up step can be done with sed 
-```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+Removing the parts of the file that you don't want can be done with sed and wildcards
+
+(This part is still rough, ran out of time. Sorry! Will fix soon.)
+
+```bash
 grep -o ';gene_name=[a-zA-Z0-9-]*;gene_type=protein_coding' chess3.1.3.CHM13.assembly.gff | uniq > newfile.txt
 sed 's/;gene_name=//' newfile.txt > newnewfile.text
 sed 's/;gene_type=protein_coding//' newnewfile.text > justthegenes.txt
 ```
+
+Next time, remember that you can also look up how a file format like [GFF format](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md) is structured.
 
 
 ### Introducing **h5ls**, a Unix tool to peek into AnnData objects
