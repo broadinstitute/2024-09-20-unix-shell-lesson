@@ -443,6 +443,8 @@ reads that we've found. We created the files to store the reads and then counted
 the file to see how many reads matched our criteria. There's a way to do this, however, that
 doesn't require us to create these intermediate files - the pipe command (`|`).
 
+## Pipes
+
 This is probably not a key you use very much, so let's all take a minute to find that key.  In the UK and US keyboard layouts, and several others,
 the `|` character can be found using the key combination <kbd>Shift</kbd>\+<kbd>\\</kbd>. 
 The backspace key is typically found near the <kbd>Return</kbd> or <kbd>Enter</kbd> key.
